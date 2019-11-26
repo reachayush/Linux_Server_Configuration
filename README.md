@@ -1,9 +1,9 @@
 # Linux_ServerConfiguration
 This is the final project for "Full Stack Web Developer Nanodegree" on Udacity. A Linux virtual machine (Amazon Lightsail / Ubuntu) is configured for Item Catalog application website.
 
-You can visit the web site at : http://13.234.165.61.xip.io/
+You can visit the web site at : http://15.206.136.153.xip.io/
 ```
-Public Static IP Address: 13.234.165.61
+Public Static IP Address: 15.206.136.153
 SSH Port: 2200
 HTTP Port: 80
 NTP Port: 123
@@ -37,12 +37,17 @@ This page explains how to secure and set up a Linux distribution on a virtual ma
 * Choose the Lightsail resource (Item-Catalog)
 * Name your static IP, and then choose Create.
 
+Reference
+
+*ServerPilot, https://serverpilot.io/community/articles/how-to-create-a-server-on-amazon-lightsail.html.
+*https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip.
+
 ## Step 2: SSH into the server
 
 * From the ```Account``` menu on Amazon Lightsail, click on ```SSH keys``` tab and download the Default Private Key.
 * Move this private key file named ```LightsailDefaultPrivateKey-*.pem``` into the local folder ```~/.ssh``` and rename it Catalog-Item.pem.
 * In your terminal, type: ```chmod 644 ~/.ssh/Catalog-Item.pem```.
-* To connect to the instance via the terminal: ```ssh ubuntu@13.234.165.61 -i ~/.ssh/Catalog-Item.pem```, where ```13.234.165.61``` is the public static IP address of the instance.
+* To connect to the instance via the terminal: ```ssh ubuntu@15.206.136.153 -i ~/.ssh/Catalog-Item.pem```, where ```15.206.136.153``` is the public static IP address of the instance.
 ## Secure the server
 
 ## Step 3: Update and upgrade installed packages
@@ -99,53 +104,60 @@ Firewall is active and enabled on system startup
 
 * Allow ports 80(TCP), 123(UDP), and 2200(TCP), and deny the default port 22. 
 
-* From your local terminal, run: ssh ubuntu@13.234.165.61 -p 2200 -i ~/.ssh/Catalog-Item.pem, where 13.234.165.61 is the public IP address of the instance.
+* From your local terminal, run: ssh ubuntu@15.206.136.153 -p 2200 -i ~/.ssh/Catalog-Item.pem, where 15.206.136.153 is the public IP address of the instance.
 
-## Give ```grader2``` access
-## Step 6: Create a new user account named ```grader2```
+## Give ```grader``` access
+## Step 6: Create a new user account named ```grader```
 
-* While logged in as ubuntu, add user: ```sudo adduser grader2```.
-* Enter a password (twice) and fill out in ```sudo adduser grader2``` formation for this new user.
-* Confirm if the user is added by ```finger grader2```.
+* While logged in as ubuntu, add user: ```sudo adduser grader```.
+* Enter a password (twice) and fill out in ```sudo adduser grader``` formation for this new user.
+* Confirm if the user is added by ```finger grader```.
 
-## Step 7: Give ```grader2``` the permission to sudo
+## Step 7: Give ```grader``` the permission to sudo
 * list all the users file: ```sudo ls /etc/sudoers.d``` .
 
-* Read the content of the file and copy it to a new file grader2: ```sudo cat /etc/sudoers.d/90-cloud-init-users sudo cp /etc/sudoers.d/90-cloud-init-users /etc/sudoers.d/grader2```
+* Read the content of the file and copy it to a new file grader: ```sudo cat /etc/sudoers.d/90-cloud-init-users sudo cp /etc/sudoers.d/90-cloud-init-users /etc/sudoers.d/grader```
 
-* Run ```sudo nano /etc/sudoers.d/grader2``` Edit the line to give sudo privileges to grader2 user. ```grader2 ALL=(ALL:ALL) ALL```
+* Run ```sudo nano /etc/sudoers.d/grader``` Edit the line to give sudo privileges to grader user. ```grader ALL=(ALL:ALL) ALL```
 
 * Save and exit using CTRL+X and confirm with Y.
 
-* Verify that grader2 has sudo permissions. Run ```su - grader2```, enter the password, run ```sudo -l``` and enter the password again.
+* Verify that grader has sudo permissions. Run ```su - grader```, enter the password, run ```sudo -l``` and enter the password again.
 
-## Step 8: Create an SSH key pair for grader2 using the ssh-keygen tool
+## Step 8: Create an SSH key pair for grader using the ssh-keygen tool
 * On the local machine:
 
 - Run ```ssh-keygen```
-- Enter file in which to save the key (I gave the name ```grader2```) in the local directory ```~/.ssh```
-- Enter in a passphrase twice. Two files will be generated ( ```~/.ssh/grader2 and ~/.ssh/grader2.pub```)
-- Run ```cat ~/.ssh/grader2.pub``` and copy the contents of the file
-- Log in to the grader2's virtual machine ```sudo su - grader2```
-- On the grader2's remote machine:
+- Enter file in which to save the key (I gave the name ```grader```) in the local directory ```~/.ssh```
+- Enter in a passphrase twice. Two files will be generated ( ```~/.ssh/grader and ~/.ssh/grader.pub```)
+- Run ```cat ~/.ssh/grader.pub``` and copy the contents of the file
+- Log in to the grader's virtual machine ```sudo su - grader```
+- On the grader's remote machine:
 
 * Create a new directory called ```~/.ssh (mkdir .ssh)```
 - Run ```sudo nano ~/.ssh/authorized_keys``` and paste the content into this file, save and exit
 - Give the permissions: ```chmod 700 .ssh``` and ```chmod 644 .ssh/authorized_keys```
 - Check in ```/etc/ssh/sshd_config``` file if PasswordAuthentication is set to no
 - Restart SSH: ```sudo service ssh restart```
-* On the local machine, run: ```ssh grader2@13.234.165.61 -p 2200 -i ~/.ssh/grader2```.
+* On the local machine, run: ```ssh grader@15.206.136.153 -p 2200 -i ~/.ssh/grader```.
+
+References
+
+DigitalOcean, https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2.
+Ubuntu Wiki, https://help.ubuntu.com/community/SSH/OpenSSH/Keys.
+
+
 
 # Prepare to deploy the project
 ## Step 9: Configure the local timezone to UTC
-* While logged in as grader2, configure the time zone: ```sudo dpkg-reconfigure tzdata```. You should see something like that:
+* While logged in as grader, configure the time zone: ```sudo dpkg-reconfigure tzdata```. You should see something like that:
 ```
   Current default time zone: 'US/Central'
   Local time is now:      Mon Jun  3 04:43:32 CDT 2019.
   Universal Time is now:  Mon Jun  3 09:43:32 UTC 2019.
 ```
 ## Step 10: Install and configure Apache to serve a Python mod_wsgi application
-* While logged in as ```grader2```, Install Apache: ```sudo apt-get install apache2```.
+* While logged in as ```grader```, Install Apache: ```sudo apt-get install apache2```.
 * Install mod_wsgi ```sudo apt-get install python-setuptools libapache2-mod-wsgi```
 * Restart Apache ```sudo service apache2 restart```
 ## Step 11: Install and configure PostgreSQL
@@ -172,12 +184,12 @@ Quit postgreSQL postgres=# \q
  exit
 ```
 ## Step 12: Install git
-* While logged in as ```grader2```, install ```git``` using: ```sudo apt-get install git```.
+* While logged in as ```grader```, install ```git``` using: ```sudo apt-get install git```.
 ## Deploy the Item Catalog project
 ## Step 13:
 1. Clone and setup the Item Catalog project from the GitHub repository
 
-  * While logged in as ```grader2```, Create application directory ```/var/www/catalog/```.
+  * While logged in as ```grader```, Create application directory ```/var/www/catalog/```.
 
   * Change to that directory and clone the catalog project:
   ```sudo git clone https://github.com/reachayush/Item_Catalog/ catalog```.
@@ -204,17 +216,17 @@ engine = create_engine('postgresql://catalog:password@localhost/catalog')
 
 * Go to [Google Cloud Plateform].
 * Click ```APIs & services``` on left menu.
-* Add ```Authorised Domains``` and add ```13.234.165.61.xip.io``` .Click Save
+* Add ```Authorised Domains``` and add ```15.206.136.153.xip.io``` .Click Save
 * Click ```Credentials```.
-* Create an OAuth Client ID (under the Credentials tab), and add http://13.234.165.61.xio.io as authorized JavaScript origins.
-* Add http://http://13.234.165.61.xip.io as authorized redirect URI.
+* Create an OAuth Client ID (under the Credentials tab), and add http://15.206.136.153.xio.io as authorized JavaScript origins.
+* Add http://15.206.136.153.xip.io as authorized redirect URI.
 * Download the corresponding JSON file, open it et copy the contents.
 * Open ```/var/www/catalog/catalog/client_secret.json``` and paste the previous contents into the this file.
 
 ## Step 14: Set up the server, so that it functions correctly when visiting your server’s IP address in a browser
 1.Install the virtual environment and dependencies
 
-  * While logged in as grader2 , Install pip ```sudo apt-get install python-pip```
+  * While logged in as grader , Install pip ```sudo apt-get install python-pip```
   * Install the virtual environment: ```sudo pip install virtualenv```
   * Change to the ```/var/www/catalog/catalog/``` directory.
   * Create the virtual environment: ```sudo pip install virtualenv```.
@@ -240,8 +252,8 @@ engine = create_engine('postgresql://catalog:password@localhost/catalog')
   * Add the following lines of code to the file to configure the virtual host.
 ```
  <VirtualHost *:80>
-  	ServerName 52.66.170.56
- 	ServerAlias http://13.234.165.61.xip.io/
+  	ServerName 15.206.136.153
+ 	ServerAlias http://15.206.136.153.xip.io/
  	WSGIDaemonProcess catalog python-path=/var/www/catalog:/var/www/catalog/catalog/venv/lib/python2.7/sites-available
  	WSGIProcessGroup catalog
  	<Directory /var/www/catalog/catalog/>
@@ -320,4 +332,13 @@ engine = create_engine('postgresql://catalog:password@localhost/catalog')
 * Restart server
   ```
   sudo service apache2 restart
+  
+  
+  
+References
+
+*Udacity's FSND Forum
+*Flask documentation, http://flask.pocoo.org/docs/0.12/installation/.
+*http://flask.pocoo.org/docs/0.12/installation/.
+*https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
   ```
