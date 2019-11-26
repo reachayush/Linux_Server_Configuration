@@ -1,4 +1,4 @@
-# Linux_ServerConfiguration
+# Project Title : Linux_Server_Configuration
 This is the final project for "Full Stack Web Developer Nanodegree" on Udacity. A Linux virtual machine (Amazon Lightsail / Ubuntu) is configured for Item Catalog application website.
 
 You can visit the web site at : http://15.206.136.153.xip.io/
