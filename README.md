@@ -39,8 +39,8 @@ This page explains how to secure and set up a Linux distribution on a virtual ma
 
 Reference
 
-ServerPilot, [How to Create a Server on Amazon Lightsail]https://serverpilot.io/community/articles/how-to-create-a-server-on-amazon-lightsail.html.
-[Create a static IP and attach it to an instance in Amazon Lightsail]https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip.
+ServerPilot, [How to Create a Server on Amazon Lightsail](https://serverpilot.io/community/articles/how-to-create-a-server-on-amazon-lightsail.html.)
+[Create a static IP and attach it to an instance in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip.)
 
 ## Step 2: SSH into the server
 
