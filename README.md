@@ -40,7 +40,6 @@ This page explains how to secure and set up a Linux distribution on a virtual ma
 Reference
 
 ServerPilot, [How to Create a Server on Amazon Lightsail.](https://serverpilot.io/community/articles/how-to-create-a-server-on-amazon-lightsail.html.)
-
 [Create a static IP and attach it to an instance in Amazon Lightsail.](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip.)
 
 ## Step 2: SSH into the server
@@ -338,8 +337,8 @@ engine = create_engine('postgresql://catalog:password@localhost/catalog')
   
 References
 
-*Udacity's FSND Forum
-*Flask documentation,[virtualenv.](http://flask.pocoo.org/docs/0.12/installation/.)
-*[Create a Python 3 virtual environment.](http://flask.pocoo.org/docs/0.12/installation/.)
-*[How To Deploy a Flask Application on an Ubuntu VPS.](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
+Udacity's FSND Forum
+Flask documentation,[virtualenv.](http://flask.pocoo.org/docs/0.12/installation/.)
+[Create a Python 3 virtual environment.](http://flask.pocoo.org/docs/0.12/installation/.)
+[How To Deploy a Flask Application on an Ubuntu VPS.](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
   ```
