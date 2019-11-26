@@ -39,8 +39,9 @@ This page explains how to secure and set up a Linux distribution on a virtual ma
 
 Reference
 
-ServerPilot, [How to Create a Server on Amazon Lightsail](https://serverpilot.io/community/articles/how-to-create-a-server-on-amazon-lightsail.html.)
-[Create a static IP and attach it to an instance in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip.)
+ServerPilot, [How to Create a Server on Amazon Lightsail.](https://serverpilot.io/community/articles/how-to-create-a-server-on-amazon-lightsail.html.)
+
+[Create a static IP and attach it to an instance in Amazon Lightsail.](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip.)
 
 ## Step 2: SSH into the server
 
@@ -143,8 +144,8 @@ Firewall is active and enabled on system startup
 
 References
 
-DigitalOcean, https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2.
-Ubuntu Wiki, https://help.ubuntu.com/community/SSH/OpenSSH/Keys.
+DigitalOcean, [How To Set Up SSH Keys.](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2.)
+Ubuntu Wiki, [SSH/OpenSSH/Keys.](https://help.ubuntu.com/community/SSH/OpenSSH/Keys.)
 
 
 
@@ -338,7 +339,7 @@ engine = create_engine('postgresql://catalog:password@localhost/catalog')
 References
 
 *Udacity's FSND Forum
-*Flask documentation, http://flask.pocoo.org/docs/0.12/installation/.
-*http://flask.pocoo.org/docs/0.12/installation/.
-*https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
+*Flask documentation,[virtualenv.](http://flask.pocoo.org/docs/0.12/installation/.)
+*[Create a Python 3 virtual environment.](http://flask.pocoo.org/docs/0.12/installation/.)
+*[How To Deploy a Flask Application on an Ubuntu VPS.](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
   ```
